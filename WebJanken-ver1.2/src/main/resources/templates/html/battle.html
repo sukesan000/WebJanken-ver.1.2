@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Battle</title>
+<!-- <link rel="stylesheet" th:href="@{/css/battle.css}">
+<script th:src="@{/js/battle.js}"></script> --> 
+</head>
+<body>
+	<h1>ジャンケンバトル</h1>
+	<h2>チェックボックスの中から出したい手を選んでください</h2>
+
+	<form action="/html/battle" method="post">
+		<div>
+			<input type="radio" id="radioA" name="radio1" value=0 />
+			<label for="radioA">ぐう</label>
+	    </div>
+	    <div>
+			<input type="radio" id="radioB" name="radio1" value=1 />
+			<label for="radioB">ちょき</label>
+	    </div>
+	    <div>
+			<input type="radio" id="radioC" name="radio1" value=2 />
+			<label for="radioC">ぱあ</label>
+	    </div>
+	    <input type="submit" value="Click"/>
+	</form>
+	<p th:text="'あなたの手: ' + ${playerHand}"></p>
+	<p th:text="'CPUの手: ' + ${cpuHand}"></p>
+	<p th:text=${winWord}></p>
+</body>
+</html>
