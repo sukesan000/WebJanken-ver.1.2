@@ -33,6 +33,8 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	testImplementation 'io.projectreactor:reactor-test'
+	compile 'org.webjars:jquery-ui:1.11.4'
+	compile 'org.webjars:bootstrap:3.3.7-1'
 }
 
 test {
