@@ -10,7 +10,7 @@
 	<body class="text-center">
 		<h1>ログイン</h1>
 		<form method="post" action="/login">
-			<label>ユーザID</label>
+			<label>ユーザID </label>
 			<input type="text" /><br/>
 			<br/>
 			<label>パスワード</label>
@@ -18,5 +18,7 @@
 			<br/>
 			<button class="btn btn-primary" type="submit">ログイン</button>
 		</form>
+		<br/>
+		<a th:href="@{'/signup'}">ユーザ新規登録はこちら</a>
 	</body>
 </html>
