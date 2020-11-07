@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.model.Character;
-import com.example.model.Cpu;
-import com.example.model.Judge;
+import com.example.janken.Character;
+import com.example.janken.Cpu;
+import com.example.janken.Judge;
 
 @Controller
 public class BattleController {

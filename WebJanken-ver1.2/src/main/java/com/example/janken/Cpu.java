@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.janken;
 
 public class Cpu extends Character{
 	public String name = "CPU";

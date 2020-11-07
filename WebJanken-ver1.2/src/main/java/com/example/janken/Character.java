@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.janken;
 
 public class Character {
 	private String name;

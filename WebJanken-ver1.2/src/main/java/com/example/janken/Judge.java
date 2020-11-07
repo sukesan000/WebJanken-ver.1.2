@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.janken;
 
 public class Judge {
 	int playerHand = 0;
