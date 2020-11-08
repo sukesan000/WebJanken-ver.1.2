@@ -25,16 +25,23 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-web-services'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation "org.sprｄｃingframework.boot:spring-boot-starter-security"
+	implementation 'javax.validation:validation-api:2.0.1.Final'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'org.hibernate.validator:hibernate-validator:6.0.17.Final'
+	runtimeOnly 'org.glassfish:javax.el:3.0.1-b11'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	testImplementation 'io.projectreactor:reactor-test'
+	testImplementation 'org.springframework.security:spring-security-test' 
 	compile 'org.webjars:jquery-ui:1.11.4'
 	compile 'org.webjars:bootstrap:3.3.7-1'
+	compile "org.springframework.boot:spring-boot-starter-security"
 }
 
 test {
