@@ -29,13 +29,12 @@ public class UserDaoJdbcImpl implements UserDao{
 			int rowNumber = jdbc.update("INSERT INTO m_user(user_id,"
 	                + " password,"
 	                + " user_name,"
-	                + " gender,"
-	                + " role)"
-	                + " VALUES(?, ?, ?, ?, ?)",
+	                + " gender)"
+	                + " VALUES(?, ?, ?, ?)",
 	                user.getUserId(),
 	                user.getPassword(),
 	                user.getUserName(),
-	                user.getRole());
+	                user.isGender());
 
 	        return rowNumber;
 		}
@@ -52,7 +51,6 @@ public class UserDaoJdbcImpl implements UserDao{
 			user.setPassword((String)map.get("password"));
 			user.setUserName((String)map.get("user_name"));
 			user.setGender((Boolean)map.get("gender"));
-			user.setRole((String)map.get("role"));
 			
 			return user;
 		}
@@ -73,7 +71,6 @@ public class UserDaoJdbcImpl implements UserDao{
 				user.setPassword((String)map.get("password"));
 				user.setUserName((String)map.get("user_name"));
 				user.setGender((Boolean)map.get("gender"));
-				user.setRole((String)map.get("role"));
 				userList.add(user);
 			}
 			return userList;
