@@ -13,12 +13,17 @@ import com.example.janken.Judge;
 @Controller
 public class BattleController {
 	@GetMapping(value="/html/battle")
-	public String GetBattle() {
-		return "html/battle";
+	public String GetBattle(Model model) {
+		model.addAttribute("contents", "html/battle :: battle_contents");
+		String initHand = "";
+		model.addAttribute("playerHand", initHand);
+		model.addAttribute("cpuHand", initHand);
+		return "html/battleLayout";
 	}
 	
 	@PostMapping(value="/html/battle")
 	public String send(@RequestParam(value="radio1", required=false)int radio1, Model model) {
+		model.addAttribute("contents", "html/battle :: battle_contents");
 		Judge judge = new Judge();
 		Character cpu = new Cpu();
 		int playerHand = 0;
@@ -31,13 +36,13 @@ public class BattleController {
 		playerStringHand = judge.printHand(playerHand);
 		cpuStringHand = judge.printHand(cpuHand);
 		winWord = judge.judgeJanken(playerHand, cpuHand);
-		//		if(radio1 == null) {
+//		if(radio1 == null) {
 //			playerHand = "あなたの手: 入力されていません";
 //		}
 		model.addAttribute("playerHand", playerStringHand);
 		model.addAttribute("cpuHand", cpuStringHand);
 		model.addAttribute("winWord", winWord);
 		
-		return "/html/battle";
+		return "/html/battleLayout";
 	}
 }
