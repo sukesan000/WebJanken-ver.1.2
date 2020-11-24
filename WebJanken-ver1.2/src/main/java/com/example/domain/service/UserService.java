@@ -31,6 +31,7 @@ public class UserService {
 	public int count() {
 		return dao.count();
 	}
+	
 	//全件取得用メソッド
 	public List<User> selectMany(){
 		//全件取得

@@ -3,18 +3,22 @@
 body {
 	padding-top: 50px;
 }
+.navbar {
+	z-index: 1;
+}
 
 .sidebar {
 	position: fixed;
 	display: block;
 	top: 50px;
 	bottom: 0;
-	baclground-color: #F4F5F7;
+	background-color: #F4F5F7;
+	z-index: 2;
 }
 
 .main {
 	padding-top: 50px;
-	padding-left: 20px;
+	padding-left: 250px;
 	position: fixed;
 	display: block;
 	top: 0px;
@@ -22,5 +26,5 @@ body {
 }
 
 .page-header {
-	margin-top:0px;
+	margin-top: 0px;
 }

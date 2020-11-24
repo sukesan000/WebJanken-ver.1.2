@@ -6,6 +6,7 @@
 	<!-- <link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" rel="stylesheet"></link>
 	<script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
 	<script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script> -->
+	<link th:href="@{/css/home.css}" rel="stylesheet" />
 </head>
 <body>
 	<div th:fragment="battle_contents">
@@ -15,7 +16,7 @@
 			
 				<form action="/html/battle" method="post">
 					<div>
-						<input type="radio" id="radioA" name="radio1" value=0 />
+						<input type="radio" id="radioA" name="radio1" value=0 required/>
 						<label for="radioA">ぐう</label>
 				    </div>
 				    <div>

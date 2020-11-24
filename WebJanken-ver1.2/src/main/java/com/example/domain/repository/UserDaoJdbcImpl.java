@@ -76,6 +76,7 @@ public class UserDaoJdbcImpl implements UserDao{
 				user.setPassword((String)map.get("password"));
 				user.setUserName((String)map.get("user_name"));
 				user.setGender((Boolean)map.get("gender"));
+				user.setRole((String)map.get("role"));
 				userList.add(user);
 			}
 			return userList;
