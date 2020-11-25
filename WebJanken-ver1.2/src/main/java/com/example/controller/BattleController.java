@@ -86,6 +86,28 @@ public class BattleController {
 		return "html/battleLayout";
 	}
 	
+	@PostMapping(value = "html/userDetail", params = "delete")
+	public String postUserDetailDelete(@ModelAttribute SignupForm form, Model model) {
+		System.out.println("削除ボタンの処理");
+		
+		//Userインスタンスの生成
+		User user = new User();
+		
+		//フォームクラスをUserクラスに変換
+		
+		//削除実行
+		boolean result = userService.deleteOne(form.getUserId());
+		
+		if(result == true) {
+			model.addAttribute("result", "削除成功");
+		}else {
+			model.addAttribute("result", "削除失敗");
+		}
+		
+		//ユーザ一覧画面を表示
+		return getUserList(model);
+	}
+	
 	//ユーザ一覧のCSV出力用メソッド
 	@GetMapping("/userList/csv")
 	public String getUserListCsv(Model model) {
