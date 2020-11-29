@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,6 +63,7 @@ public class BattleController {
 		return "html/battleLayout";
 	}
 	
+	//ユーザ詳細画面のGEメソッド用処理
 	@GetMapping("/userDetail/{id:.+}")
 	public String getUserDetail(@ModelAttribute SignupForm form, Model model, @PathVariable("id") String userId) {
 		//ユーザーID確認（デバッグ）
@@ -84,6 +86,32 @@ public class BattleController {
 			model.addAttribute("signupForm", form);
 		}
 		return "html/battleLayout";
+	}
+	
+	//ユーザ更新用処理
+	@PostMapping(value = "/userDetail", params = "update")
+	public String postUserDetailUpdate(@ModelAttribute SignupForm form, Model model) {
+		System.out.println("更新ボタンの処理");
+		
+		//Userインスタンスの生成
+		User user = new User();
+		
+		//フォームクラスをUserクラスに変換
+		user.setUserId(form.getUserId());
+		user.setPassword(form.getPassword());
+		user.setUserName(form.getUserName());
+		user.setGender(form.isGender());
+
+		//更新実行
+		boolean result = userService.updateOne(user);
+		
+		if(result == true) {
+			model.addAttribute("result", "更新成功");
+		}else {
+			model.addAttribute("result", "更新失敗");
+		}
+		//ユーザ一覧画面を表示
+		return getUserList(model);
 	}
 	
 	@PostMapping(value = "html/userDetail", params = "delete")
